@@ -13,6 +13,6 @@ async def on_message(message):
         return
 
     if message.content.startswith('$hello'):
-        await message.channel.send('Howdy!')
+        await message.channel.send('HEllo!')
 
 client.run(DISCORD_TOKEN)

@@ -11,11 +11,6 @@ def get_random_line(afile, default=None):
             line = aline
     return line
 
-# def get_doggo(default=None):
-#     afile = choice(os.listdir("dog-images\\"))
-#     return afile
-
-
 client = discord.Client()
 
 @client.event
@@ -55,8 +50,10 @@ async def on_message(message):
         await message.channel.send(file=discord.File(filepath))
 
     if message.content.startswith('$Doggo'):
-        await message.channel.send("Henlo fren")
-        
+        with open('doggo-greetings.txt') as f:
+            henlo = get_random_line(f)
+        await message.channel.send(henlo)
+
 
 
 client.run(DISCORD_TOKEN)

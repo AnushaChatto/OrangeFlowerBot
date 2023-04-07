@@ -3,6 +3,7 @@ from DISCORD_TOKEN import *
 from random import randrange, choice, seed, uniform
 from datetime import datetime   
 import os 
+import youtube_dl
 
 def get_random_line(afile, default=None):
     line = default
@@ -11,7 +12,11 @@ def get_random_line(afile, default=None):
             line = aline
     return line
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+
+#client = discord.Client(command_prefix='$',intents=intents)
+client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
@@ -22,37 +27,39 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello'):
+    messageContent = message.content.lower()
+
+    if messageContent.startswith('$hello'):
         with open('greetings.txt') as f:
             greeting = get_random_line(f)
         await message.channel.send(greeting)  
 
-    if message.content.startswith('$time'):
+    if messageContent.startswith('$time'):
         now = datetime.now()
         await message.channel.send(now)
 
-    if message.content.startswith('$are you lonely?'):
+    if messageContent.startswith('$are you lonely?'):
+        await message.channel.send("I can't tell you about myself, but this may help you")  
         with open('lonely.txt') as f:
             quotes = get_random_line(f)
         await message.channel.send(quotes)
 
-    if message.content.startswith('$are you lonely?'):
-        await message.channel.send("I can't tell you about myself, but this may help you")  
+        
 
-    if message.content.startswith('$Tell me a joke!'):
+    if messageContent.startswith('$tell me a joke!'):
         with open('jokes.txt') as f:
             joke = get_random_line(f)
         await message.channel.send(joke)  
 
-    if message.content.startswith('$Doggo'):
+    if messageContent.startswith('$doggo'):
         filename = choice(os.listdir("dog-images//"))
         filepath = ("dog-images/" + filename)
         await message.channel.send(file=discord.File(filepath))
-
-    if message.content.startswith('$Doggo'):
         with open('doggo-greetings.txt') as f:
             henlo = get_random_line(f)
         await message.channel.send(henlo)
+
+        
 
 
 

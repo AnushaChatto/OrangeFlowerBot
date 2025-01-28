@@ -5,16 +5,16 @@ functions for now:
 
 Random greetings
 
-Tells jokes and about being lonely
+Tells jokes and talks about us being lonely
 
 BEST FEATURE: 
     SENDS DOGGO IMAGES
 
 
 # logs
-#update as of april 7 2023 - 
+#update as of April 7 2023 - 
 rework started to add features
-making commands non case sensitive
+making commands noncase sensitive
 
 
 Will be updated to integrate further project previews

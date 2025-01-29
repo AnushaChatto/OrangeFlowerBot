@@ -19,3 +19,5 @@ making commands noncase sensitive
 
 Will be updated to integrate further project previews
 also attempts to host on a stable server pending
+
+Project on Pause

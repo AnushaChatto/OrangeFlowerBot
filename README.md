@@ -6,6 +6,7 @@ functions for now:
 Random greetings
 
 Tells jokes and talks about us being lonely
+ 
 
 BEST FEATURE: 
     SENDS DOGGO IMAGES
